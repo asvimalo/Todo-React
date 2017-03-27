@@ -23,6 +23,10 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components'
+    ],
     alias: {
     //   Greeter: 'public/components/Greeter.jsx',
       applicationStyles: 'app/styles/app.scss',
