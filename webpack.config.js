@@ -1,6 +1,7 @@
 'use strict';
 
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: [
@@ -29,7 +30,7 @@ module.exports = {
     ],
     alias: {
     //   Greeter: 'public/components/Greeter.jsx',
-      applicationStyles: 'app/styles/app.scss',
+      applicationStyles: 'app/styles/app.scss'
     //   GreeterForm: 'public/components/GreeterFrom.jsx'
     },
     extensions: ['','.js','.jsx']
@@ -48,12 +49,17 @@ module.exports = {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
         exclude: /(node_modules|bower_components)/
-      },
-      {
-        test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader',
-        //exclude: /(node_modules|bower_components)/
       }
+      // {
+      //   test: /\.scss$/,
+      //   loader: 'style-loader!css-loader!sass-loader',
+      //   //exclude: /(node_modules|bower_components)/
+      // }
+    ]
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
   devtool: 'cheap-module-eval-source-map'
