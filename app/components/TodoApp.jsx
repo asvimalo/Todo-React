@@ -4,7 +4,8 @@ const uuid = require('uuid');
 const TodoList = require('TodoList');
 const AddTodo = require('AddTodo');
 const TodoSearch = require('TodoSearch');
-var TodoAPI = require('TodoAPI');
+const TodoAPI = require('TodoAPI');
+
 
 var TodoApp = React.createClass({
   getInitialState: function () {
@@ -45,12 +46,12 @@ var TodoApp = React.createClass({
     this.setState({todos: updatedTodos});
   },
   render: function () {
-    var {todos} = this.state;
-
+    var {todos, showCompleted, searchText} = this.state;
+    var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
       <div>
         <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={todos} onToggle={this.handleToggle}/>
+        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
         <AddTodo onAddTodo={this.handleAddTodo} />
       </div>
     )
