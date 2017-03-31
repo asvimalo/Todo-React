@@ -6,11 +6,11 @@ var TodoApp = require('TodoApp');
 
 
 // Load foundation
-require('style!css!foundation-sites/dist/css/foundation.min.css');
+//require('style!css!foundation-sites/dist/css/foundation.min.css');
 //$(document).foundation();
 $(document).foundation();
 
-//require('style!css!sass!applicationStyles');
+require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
   <Router history={hashHistory}>

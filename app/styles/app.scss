@@ -1,7 +1,11 @@
-.page-title {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-input[type=search] {
-  box-shadow: none;
-}
+@import "base/variables";
+// Foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+// Components
+
+// @import "components/navigation";
+// @import "components/clock";
+// @import "components/controls";
+@import "components/page-title";
