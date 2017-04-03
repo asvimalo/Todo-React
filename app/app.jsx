@@ -4,6 +4,17 @@ var {Route,Router, IndexRoute, hashHistory} = require('react-router');
 
 var TodoApp = require('TodoApp');
 
+var actions = require('actions');
+var store = require('configureStore').configure();
+
+console.log('State: ', store);
+
+store.subscribe(() => {
+  console.log('New State', store.getState());
+});
+store.dispatch(actions.addTodo('Eat some good food at midday'));
+store.dispatch(actions.setSearchText('Eat'));
+store.dispatch(actions.toggleShowCompleted());
 
 // Load foundation
 //require('style!css!foundation-sites/dist/css/foundation.min.css');
@@ -13,10 +24,6 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={TodoApp}>
-
-    </Route>
-  </Router>,
+  <TodoApp/>,
   document.getElementById('app')
 );
